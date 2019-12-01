@@ -5,12 +5,12 @@ const compression = require('compression');
 
 browserSync.init({
   server: {
-    baseDir: 'public',
+    baseDir: 'docs',
     index: 'index.html',
   },
   files: [
-    'scripts/**',
-    'index.html',
+    'docs/scripts/**',
+    'docs/index.html',
   ],
   middleware: [
     logger(),

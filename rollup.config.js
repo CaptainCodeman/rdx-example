@@ -10,7 +10,7 @@ import size from 'rollup-plugin-size';
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'public/scripts/app.js',
+    file: 'docs/scripts/app.js',
     format: 'esm',
     sourcemap: true,
   },
