@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "redux-remodel": ["index"],
+      "redux-remodel/connect": ["connect"],
+      "redux-remodel/devtools": ["devtools"],
+      "redux-remodel/routing": ["routing"],
+    },
+  },
+}

@@ -1,0 +1,33 @@
+{
+  "name": "rdx-example",
+  "version": "1.0.0",
+  "description": "Example app to show Rdx and Rdx-Model",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "sourcemap": "source-map-explorer public/scripts/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",
+  "license": "ISC",
+  "devDependencies": {
+    "@captaincodeman/rdx": "^1.0.0-alpha.2",
+    "@captaincodeman/rdx-model": "^1.0.0-alpha.2",
+    "@captaincodeman/router": "^1.0.0-alpha.3",
+    "browser-sync": "^2.26.7",
+    "compression": "^1.7.4",
+    "connect-history-api-fallback": "^1.6.0",
+    "connect-logger": "0.0.1",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2",
+    "rollup": "^1.27.5",
+    "rollup-plugin-minify-html-literals": "^1.2.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-size": "^0.2.1",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript": "^1.0.1",
+    "source-map-explorer": "^2.1.1",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  }
+}

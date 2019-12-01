@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>rdx-example</title>
+  <!-- for WebKit / Safari EventTarget constructor:
+  <script src="https://unpkg.com/@ungap/event-target@0.1.0/min.js"></script>
+   -->
+  <script src="/scripts/app.js" type="module"></script>
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      padding: 12px;
+    }
+
+    header {
+      margin: 8px;
+      padding: 8px;
+    }
+
+    a {
+      margin: 4px;
+      padding: 6px 12px;
+      background-color: #eee;
+    }
+
+    app-shell {
+      display: block;
+      margin: 8px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      white-space: pre;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/todos">todos</a>
+    <a href="/article/1">article 1</a>
+    <a href="/article/2">article 2</a>
+    <a href="/counter">counter</a>
+    <a href="/unknown">unknown</a>
+  </header>
+  <app-shell></app-shell>
+</body>
+
+</html>
