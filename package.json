@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "sourcemap": "source-map-explorer public/scripts/app.js",
+    "sourcemap": "source-map-explorer docs/scripts/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",
