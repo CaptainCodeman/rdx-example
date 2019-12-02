@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>rdx-example</title>
+  <!-- hack for SPA on github pages -->
+  <script>
+    (function(){
+      const redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+  <!-- for WebKit / Safari EventTarget constructor: -->
+  <script src="https://unpkg.com/@ungap/event-target@0.1.0/min.js"></script>
+  <script src="/rdx-example/scripts/app.js" type="module"></script>
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      padding: 12px;
+    }
+
+    header {
+      margin: 8px;
+      padding: 8px;
+    }
+
+    a {
+      margin: 4px;
+      padding: 6px 12px;
+      background-color: #eee;
+    }
+
+    app-shell {
+      display: block;
+      margin: 8px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      white-space: pre;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>rdx-example</h1>
+  <p>This is a simple example app to demonstrate "rdx" which aims to be "like Redux, but smaller" and with a much simpler API to reduce the amount of boilerplate code required.</p>
+  <header>
+    <a href="/rdx-example/">home</a>
+    <a href="/rdx-example/blog">blog</a>
+    <a href="/rdx-example/todos">todos</a>
+    <a href="/rdx-example/article/1">article 1</a>
+    <a href="/rdx-example/article/2">article 2</a>
+    <a href="/rdx-example/counter">counter</a>
+    <a href="/rdx-example/unknown">unknown</a>
+  </header>
+  <app-shell></app-shell>
+  <p>The entire app is just <b>3.1 kb</b> minified and gzipped<sup>*</sup>, but includes:</p>
+  <ul>
+    <li>Redux-like state store (actions + reducers + middleware)</li>
+    <li>Redux Dev-Tools integration</li>
+    <li>State persistence / hydration using localStorage</li>
+    <li>Async action handling (thunks middleware)</li>
+    <li>Routing and parameter extraction</li>
+    <li>UI components bound to state store</li>
+  </ul>
+  <p><small><sup>*</sup> Safari currently requires a 1kb polyfill for EventTarget support</p></small>
+  <p>Each of the links below loads a separate view, using the router. The todos link loads some remote JSON data with logic to prevent re-loading if already fetched (including when going between the list & detail views). Data is persisted to localStorage so the data and counter state is saved between page refreshed - clear that out to trigger the data reloading.</p>
+  <h2>Source-map</h2>
+  <p>Here's the source-map of how the JS bundle size is made up (uncompressed sizes). The 'framework' accounts for about half of the total bundle size, the UI accounts for most of the 'app' part. The rdx libs helps reduce the code needed for the app's state store so as the app grows, the overhead has already been paid.</p>
+  <img src="/rdx-example/sourcemap.png">
+</body>
+
+</html>
