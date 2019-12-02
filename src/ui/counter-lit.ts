@@ -3,7 +3,7 @@ import { connect } from '@captaincodeman/rdx'
 import { store, State } from '../store'
 
 @customElement("counter-view")
-class CounterElement extends connect(store, LitElement) {
+export class CounterElement extends connect(store, LitElement) {
   @property({ type: Number }) count = 0
 
   mapState(state: State) {

@@ -1,6 +1,6 @@
 import { connect } from '@captaincodeman/rdx'
 import { store, State } from '../store'
-import { Todo } from '../store/models/todos'
+import { Todo } from '../models/todos'
 
 class TodoListElement extends connect(store, HTMLElement) {
   set todos(val: Todo[]) {
