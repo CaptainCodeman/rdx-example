@@ -5,7 +5,7 @@ An example app to test and demonstrate "rdx" - like Redux, but smaller
 This app creates a **3.1Kb** JS bundle for an SPA including:
 
 * Redux-like store (actions + reducers + middleware)
-* Redux devtool integration
+* Redux devtools integration (load page with [chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en))
 * Utils to reduce store boilerplate
 * Persistence / hydration middleware (localStorage)
 * Async 'thunk' middleware
