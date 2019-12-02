@@ -1,13 +1,15 @@
 import createMatcher from '@captaincodeman/router'
 
+// NOTE: the /:app prefix of the routes is to handle github pages
+
 const routes = {
-  '/':                  'home-view',
-  '/blog':              'blog-view',
-  '/todos':             'todos-view',
-  '/todos/:id':         'todo-view',
-  '/article/:article':  'article-view',
-  '/counter':           'counter-view',
-  '/*':                 'not-found',
+  '/:app/':                  'home-view',
+  '/:app/blog':              'blog-view',
+  '/:app/todos':             'todos-view',
+  '/:app/todos/:id':         'todo-view',
+  '/:app/article/:article':  'article-view',
+  '/:app/counter':           'counter-view',
+  '/:app/*':                 'not-found',
 }
 
 export const routeMatcher = createMatcher(routes)

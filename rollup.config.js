@@ -27,7 +27,8 @@ export default {
     minify({
       options: {
         shouldMinify: (template) => defaultShouldMinify(template) || 
-                                    template.parts.some(part => part.text.includes('<style'))
+                                    template.parts.some(part => part.text.includes('<style')) ||
+                                    template.parts.some(part => part.text.includes('</span'))
       }
     }),
     typescript({ typescript: require('typescript') }),

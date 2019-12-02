@@ -4,13 +4,18 @@ const logger = require('connect-logger');
 const compression = require('compression');
 
 browserSync.init({
+  cwd: 'docs',
+  startPath: '/rdx-example/',
   server: {
     baseDir: 'docs',
     index: 'index.html',
+    routes: {
+      '/rdx-example': 'docs'
+    }
   },
   files: [
-    'docs/scripts/**',
-    'docs/index.html',
+    'scripts/**',
+    'index.html',
   ],
   middleware: [
     logger(),
