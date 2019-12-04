@@ -67,7 +67,7 @@
   <script type="module" src="scripts/app.js"></script>
   <script type="module">
     import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0-rc.1/workbox-window.prod.mjs';
-    const wb = new Workbox('/sw.js');
+    const wb = new Workbox('sw.js');
     wb.register();
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.10/pwacompat.min.js"
