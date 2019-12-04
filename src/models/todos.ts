@@ -1,4 +1,5 @@
 import { createModel, RoutingState } from '@captaincodeman/rdx-model';
+import { State } from '../store';
 
 export interface Todo {
   userId: number
@@ -54,7 +55,7 @@ export default createModel({
   },
 
   effects: {
-    async select(payload, state) {
+    async select(payload, state: State) {
       if (!state.todos.entities[state.todos.selected]) {
         this.request()
         const resp = await fetch(`${endpoint}todos/${payload}`)
@@ -63,7 +64,7 @@ export default createModel({
       }
     },
 
-    async load(_, state) {
+    async load(_, state: State) {
       if (!state.todos.ids.length) {
         this.request()
         const resp = await fetch(`${endpoint}todos`)

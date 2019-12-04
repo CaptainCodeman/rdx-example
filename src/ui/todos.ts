@@ -8,7 +8,7 @@ class TodoListElement extends connect(store, HTMLElement) {
       const frag = document.createDocumentFragment()
       val.forEach(todo => {
         const li = document.createElement('li')
-        li.innerHTML = `<a href="/todos/${todo.id}" ${todo.completed ? 'completed' : ''}>${todo.title}</a>`
+        li.innerHTML = `<a href="./todos/${todo.id}" ${todo.completed ? 'completed' : ''}>${todo.title}</a>`
         frag.appendChild(li)
       })
       this.el.textContent = ''
