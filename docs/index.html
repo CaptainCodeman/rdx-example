@@ -14,6 +14,7 @@
   <link rel="manifest" href="manifest.json">
 
   <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADspwAA/vnsAO6rAAD///8A7awAAO6sAADvtBcA7q0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAzMzMzMzMzM0IzMzMzMzMzNHQzMzMzMzMzN3UzMzMzMzMxd3MzMzMzM3dzMzMzMzMzN3czMzMzMzMzR0MzMzMzMzMzdDMzMzMzMzM0YzMzMzMzMzM0MzMzMzMzMzMzMzMzMzMzMzMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
 
   <style>
     body {
@@ -63,7 +64,12 @@
   <script>try{new EventTarget}catch(e){document.write(
     '<script src="https://unpkg.com/@ungap/event-target@0.1.0/min.js"><\x2fscript>'
   )}</script>
-  <script src="scripts/app.js" type="module"></script>
+  <script type="module" src="scripts/app.js"></script>
+  <script type="module">
+    import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0-rc.1/workbox-window.prod.mjs';
+    const wb = new Workbox('/sw.js');
+    wb.register();
+  </script>
   <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.10/pwacompat.min.js"
   integrity="sha384-I1iiXcTSM6j2xczpDckV+qhhbqiip6FyD6R5CpuqNaWXvyDUvXN5ZhIiyLQ7uuTh"
   crossorigin="anonymous"></script>
@@ -100,8 +106,8 @@
   <h2>Source-map</h2>
   <p>Here's the source-map of how the JS bundle size is made up (uncompressed sizes). The 'framework' accounts for about half of the total bundle size, the UI accounts for most of the 'app' part. The rdx libs helps reduce the code needed for the app's state store so as the app grows, the tiny overhead has already been paid and the utils mean less additional code is needed as it does.</p>
   <picture>
-    <source srcset="sourcemap.webp" type="image/webp">
-    <img src="sourcemap.png" alt="source-map-explorer view">
+    <source srcset="images/sourcemap.webp" type="image/webp">
+    <img src="images/sourcemap.png" alt="source-map-explorer view">
   </picture>
 </body>
 
