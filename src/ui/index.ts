@@ -1,4 +1,4 @@
 import './app'
-import './counter'
+import './counter-lit'
 import './todos'
 import './views'
