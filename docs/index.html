@@ -5,14 +5,14 @@
   <title>rdx-example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Description" content="Example to demonstrate rdx - a tiny state store, like Redux but smaller">
-  <meta name="apple-mobile-web-app-title" content="Survival">
+  <meta name="apple-mobile-web-app-title" content="rdx-example">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <base href="/rdx-example/">
 
   <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://storage.googleapis.com">
+  <link rel="preload" href="scripts/app.js" as="script">
 
   <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADspwAA/vnsAO6rAAD///8A7awAAO6sAADvtBcA7q0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAzMzMzMzMzM0IzMzMzMzMzNHQzMzMzMzMzN3UzMzMzMzMxd3MzMzMzM3dzMzMzMzMzN3czMzMzMzMzR0MzMzMzMzMzdDMzMzMzMzM0YzMzMzMzMzM0MzMzMzMzMzMzMzMzMzMzMzMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
   <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
@@ -63,19 +63,17 @@
   </script>
   <!-- for WebKit / Safari EventTarget constructor: -->
   <script>try{new EventTarget}catch(e){document.write(
-    '<script src="https://unpkg.com/@ungap/event-target@0.1.0/min.js"><\x2fscript>'
+    '<script src="scripts/event-target.min.js"><\x2fscript>'
   )}</script>
   <script type="module" src="scripts/app.js"></script>
   <script type="module">
     window.addEventListener('load', async () => {
-      const { Workbox } = await import('https://storage.googleapis.com/workbox-cdn/releases/5.0.0-rc.1/workbox-window.prod.mjs')
+      const { Workbox } = await import('./scripts/workbox-window.js')
       const wb = new Workbox('sw.js');
       wb.register();
     })
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.10/pwacompat.min.js"
-  integrity="sha384-I1iiXcTSM6j2xczpDckV+qhhbqiip6FyD6R5CpuqNaWXvyDUvXN5ZhIiyLQ7uuTh"
-  crossorigin="anonymous"></script>
+  <script async src="scripts/pwacompat.min.js"></script>
 </head>
 
 <body>
@@ -110,7 +108,7 @@
   <p>Here's the source-map of how the JS bundle size is made up (uncompressed sizes). The 'framework' accounts for about half of the total bundle size, the UI accounts for most of the 'app' part. The rdx libs helps reduce the code needed for the app's state store so as the app grows, the tiny overhead has already been paid and the utils mean less additional code is needed as it does.</p>
   <picture>
     <source srcset="images/sourcemap.webp" type="image/webp">
-    <img src="images/sourcemap.png" alt="source-map-explorer view">
+    <img src="images/sourcemap.png" alt="source-map-explorer view" width="1688" height="910" loading="lazy">
   </picture>
 </body>
 

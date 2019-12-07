@@ -32,24 +32,6 @@ generateSW({
     options: {
       cacheName: 'images',
     },
-  },{
-    urlPattern: /^https:\/\/(fonts|storage)\.googleapis\.com\//,
-    handler: 'CacheFirst',
-    options: {
-      cacheName: 'googleapis',
-    },
-  }, {
-    urlPattern: /^https:\/\/cdn\.jsdelivr\.net\//,
-    handler: 'CacheFirst',
-    options: {
-      cacheName: 'jsdelivr',
-    },
-  }, {
-    urlPattern: /^https:\/\/unpkg\.com\//,
-    handler: 'CacheFirst',
-    options: {
-      cacheName: 'unpkg',
-    },
   }],
   offlineGoogleAnalytics: false,
   cleanupOutdatedCaches: true,
