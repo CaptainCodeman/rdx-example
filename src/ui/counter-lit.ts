@@ -14,8 +14,8 @@ export class CounterElement extends connect(store, LitElement) {
 
   render() {
     return html`
-      <button @click=${store.models.counter.dec}>-</button>
+      <button @click=${store.dispatch.counter.dec}>-</button>
       <span>${this.count}</span>
-      <button @click=${store.models.counter.inc}>+</button>`
+      <button @click=${store.dispatch.counter.inc}>+</button>`
   }
 }

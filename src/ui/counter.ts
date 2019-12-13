@@ -25,8 +25,8 @@ class CounterElement extends connect(store, HTMLElement) {
     this.el = <HTMLSpanElement>root.querySelector('#count')
     const dec = <HTMLButtonElement>root.querySelector('#dec')
     const inc = <HTMLButtonElement>root.querySelector('#inc')
-    dec.addEventListener('click', store.models.counter.dec)
-    inc.addEventListener('click', store.models.counter.inc)
+    dec.addEventListener('click', store.dispatch.counter.dec)
+    inc.addEventListener('click', store.dispatch.counter.inc)
   }
 
   private el?: HTMLSpanElement

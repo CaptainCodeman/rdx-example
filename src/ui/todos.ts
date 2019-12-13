@@ -54,7 +54,7 @@ class TodoListElement extends connect(store, HTMLElement) {
 
 customElements.define('todos-view', TodoListElement)
 
-class TotoItemElement extends connect(store, HTMLElement) {
+class TodoItemElement extends connect(store, HTMLElement) {
   set todo(val: Todo) {
     if (this.el && val) {
       this.el.textContent = JSON.stringify(val, null, '  ')
@@ -85,4 +85,4 @@ class TotoItemElement extends connect(store, HTMLElement) {
   private el?: HTMLPreElement
 }
 
-customElements.define('todo-view', TotoItemElement)
+customElements.define('todo-view', TodoItemElement)

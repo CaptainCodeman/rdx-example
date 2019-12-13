@@ -1,5 +1,5 @@
 import { createModel, RoutingState } from '@captaincodeman/rdx-model';
-import { State } from '../store';
+import { State, Dispatch } from '../store';
 
 export interface Todo {
   userId: number
@@ -54,34 +54,39 @@ export default createModel({
     },
   },
 
-  effects: {
-    async select(payload, state: State) {
+  effects: (dispatch: Dispatch, getState) => ({
+    async select(payload) {
+      const state: State = getState()
       if (!state.todos.entities[state.todos.selected]) {
-        this.request()
+        // 'this' should be the current models reducer methods
+        // dispatch should be augmented with other models methods
+        // dispatch.todos.request()
+        dispatch.todos.request()
         const resp = await fetch(`${endpoint}todos/${payload}`)
         const json = await resp.json()
-        this.received(json)
+        dispatch.todos.received(json)
       }
     },
 
-    async load(_, state: State) {
+    async load() {
+      const state: State = getState()
       if (!state.todos.ids.length) {
-        this.request()
+        dispatch.todos.request()
         const resp = await fetch(`${endpoint}todos`)
         const json = await resp.json()
-        this.receivedList(json)
+        dispatch.todos.receivedList(json)
       }
     },
 
     'routing/change': async function(payload: RoutingState) {
       switch (payload.page) {
         case 'todos-view':
-          this.load()
+          dispatch.todos.load()
           break
         case 'todo-view':
-          this.select(parseInt(payload.params.id))
+          dispatch.todos.select(parseInt(payload.params.id))
           break
       }
     }
-  }
+  })
 })
