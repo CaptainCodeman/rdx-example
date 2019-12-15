@@ -14,8 +14,4 @@ This app creates a **3 Kb** JS bundle for an SPA including:
 
 See [live demo](https://captaincodeman.github.io/rdx-example/)
 
-NOTE: `rdx` and `rdx-model` packages that this app depends on are published
-on npm but don't yet have the correct Typescript typings. The aim is to have
-everything type-safe.
-
-The micro-router used is available at [github.com/CaptainCodeman/js-router](https://github.com/CaptainCodeman/js-router)
+This is build using [rdx](https://github.com/CaptainCodeman/rdx), a tiny redux-like state store, and [rdx-model](https://github.com/CaptainCodeman/rdx-model) which helps define store models and also adds async effect handling and routing using a [tiny router](https://github.com/CaptainCodeman/js-router)
