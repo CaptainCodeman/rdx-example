@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@captaincodeman/rdx": "^1.0.0-beta.2",
-    "@captaincodeman/rdx-model": "^1.0.0-beta.4",
+    "@captaincodeman/rdx-model": "^1.0.0-beta.5",
     "@captaincodeman/router": "^1.0.1",
     "browser-sync": "^2.26.7",
     "compression": "^1.7.4",
