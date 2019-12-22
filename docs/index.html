@@ -105,12 +105,6 @@
   <p>Each of the nav links above loads a separate view, using the router. The 'todos' link loads some remote JSON data with logic to prevent re-loading if already fetched (including when going between the list & detail views in either direction). Data is persisted to localStorage so the data and counter state is saved between page refreshes - clear that out to see the data re-load.</p>
   <h2>Source-code</h2>
   <p>The source-code for the app is available at <a href="https://github.com/CaptainCodeman/rdx-example" rel="external">github.com/CaptainCodeman/rdx-example</a> together with links to the state store used.</p>
-  <h2>Source-map</h2>
-  <p>Here's the source-map of how the JS bundle size is made up (uncompressed sizes). The 'framework' accounts for about half of the total bundle size, the UI accounts for most of the 'app' part. The rdx libs helps reduce the code needed for the app's state store so as the app grows, the tiny overhead has already been paid and the utils mean less additional code is needed as it does.</p>
-  <picture>
-    <source srcset="images/sourcemap.webp" type="image/webp">
-    <img src="images/sourcemap.png" alt="source-map-explorer view" width="723" height="381" loading="lazy">
-  </picture>
 </body>
 
 </html>
