@@ -2,7 +2,7 @@
 
 An example app to test and demonstrate "rdx" - like Redux, but smaller
 
-This app creates a **2.98 Kb** JS bundle for an SPA including:
+This app creates a **3 Kb** JS bundle for an SPA including:
 
 * Redux-like store (actions + reducers + middleware)
 * Redux devtools integration (load page with [chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en))
