@@ -15,10 +15,10 @@
 
   <base href="/rdx-example/">
 
-  <link rel="manifest" href="manifest.json">
   <link rel="preload" href="scripts/app.js" as="script" crossorigin="anonymous">
 
-  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADspwAA/vnsAO6rAAD///8A7awAAO6sAADvtBcA7q0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAzMzMzMzMzM0IzMzMzMzMzNHQzMzMzMzMzN3UzMzMzMzMxd3MzMzMzM3dzMzMzMzMzN3czMzMzMzMzR0MzMzMzMzMzdDMzMzMzMzM0YzMzMzMzMzM0MzMzMzMzMzMzMzMzMzMzMzMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADspwAA/vnsAO6rAAD///8A7awAAO6sAADvtBcA7q0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAzMzMzMzMzM0IzMzMzMzMzNHQzMzMzMzMzN3UzMzMzMzMxd3MzMzMzM3dzMzMzMzMzN3czMzMzMzMzR0MzMzMzMzMzdDMzMzMzMzM0YzMzMzMzMzM0MzMzMzMzMzMzMzMzMzMzMzMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="image/x-icon" />
   <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
   <link rel="icon" href="images/icons/icon-512x512.png" sizes="512x512">
   <link rel="icon" href="images/icons/icon-384x384.png" sizes="384x384">
@@ -29,63 +29,14 @@
   <link rel="icon" href="images/icons/icon-96x96.png" sizes="96x96">
   <link rel="icon" href="images/icons/icon-72x72.png" sizes="72x72">
 
-  <style>
-    body {
-      font-family: 'Roboto', 'Noto', sans-serif;
-      line-height: 1.5;
-      padding: 12px;
-    }
-
-    header {
-      margin: 8px;
-      padding: 8px;
-      line-height: 48px;
-    }
-
-    a {
-      height: 48px;
-      margin: 4px;
-      padding: 10px;
-      background-color: #eee;
-    }
-
-    app-shell {
-      display: block;
-      margin: 8px;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      white-space: pre;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+  <style>body{font-family:Roboto,Noto,sans-serif;line-height:1.5;padding:12px}header{margin:8px;padding:8px;line-height:48px}a{height:48px;margin:4px;padding:10px;background-color:#eee}app-shell{display:block;margin:8px;padding:12px;border:1px solid #ccc;border-radius:6px;white-space:pre}img{max-width:100%;height:auto}</style>
 
   <!-- hack for SPA on github pages -->
-  <script>
-    (function(){
-      const redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect !== location.href) {
-        history.replaceState(null, null, redirect);
-      }
-    })();
-  </script>
+  <script>!function(){const e=sessionStorage.redirect;delete sessionStorage.redirect,e&&e!==location.href&&history.replaceState(null,null,e)}();</script>
   <!-- for WebKit / Safari EventTarget constructor: -->
-  <script>try{new EventTarget}catch(e){document.write(
-    '<script src="scripts/event-target.min.js"><\x2fscript>'
-  )}</script>
+  <script>try{new EventTarget}catch(e){document.write('<script src="scripts/event-target.min.js"><\x2fscript>')}</script>
   <script type="module" src="scripts/app.js"></script>
-  <script type="module">
-    window.addEventListener('load', async () => {
-      const { Workbox } = await import('./scripts/workbox-window.js')
-      const wb = new Workbox('sw.js');
-      wb.register();
-    })
-  </script>
+  <script type="module">window.addEventListener("load",async()=>{const{Workbox:o}=await import("./scripts/workbox-window.js");new o("sw.js").register()});</script>
 </head>
 
 <body>
