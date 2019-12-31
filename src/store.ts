@@ -19,7 +19,7 @@ let store = createStore({ models, plugins: [routingPlugin] })
 // the bundle size becomes 7.11 Kb minified, 2.7 Kb gzipped
 
 store = devtools(store)
-// store = persist(store)
+store = persist(store)
 
 export { store }
 
