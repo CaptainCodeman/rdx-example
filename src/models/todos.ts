@@ -55,7 +55,7 @@ export default createModel({
   },
 
   effects: (dispatch: Dispatch, getState) => ({
-    async select(payload) {
+    async select(payload: number) {
       const state: State = getState()
       if (!state.todos.entities[state.todos.selected]) {
         // 'this' should be the current models reducer methods

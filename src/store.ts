@@ -1,4 +1,4 @@
-import { createStore, routingPluginFactory, ModelsState, ModelsDispatch } from '@captaincodeman/rdx-model'
+import { createStore, routingPluginFactory, ModelsState, ModelsDispatch, RoutingState, RoutingDispatch } from '@captaincodeman/rdx-model'
 import { devtools, persist} from '@captaincodeman/rdx'
 import { routeMatcher } from './routes'
 import * as models from './models'
@@ -19,10 +19,10 @@ let store = createStore({ models, plugins: [routingPlugin] })
 // the bundle size becomes 7.11 Kb minified, 2.7 Kb gzipped
 
 store = devtools(store)
-store = persist(store)
+// store = persist(store)
 
 export { store }
 
-export type Store = typeof store
-export type State = ModelsState<typeof models> // & { routing: RoutingState }
-export type Dispatch = ModelsDispatch<typeof models> // { routing: RoutingDispatch }
+export type Store = typeof store;
+export type State = ModelsState<typeof models> & { routing: RoutingState }
+export type Dispatch = ModelsDispatch<typeof models> & { routing: RoutingDispatch }
