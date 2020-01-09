@@ -17,13 +17,6 @@
       "esnext",
       "dom",
       "dom.iterable"
-    ],
-    "baseUrl": "src",
-    "paths": {
-      "redux-remodel": ["index"],
-      "redux-remodel/connect": ["connect"],
-      "redux-remodel/devtools": ["devtools"],
-      "redux-remodel/routing": ["routing"],
-    },
+    ]
   },
 }
