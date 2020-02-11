@@ -24,5 +24,7 @@ store = persist(store)
 export { store }
 
 export type Store = typeof store;
-export type State = ModelsState<typeof models> & { routing: RoutingState }
-export type Dispatch = ModelsDispatch<typeof models> & { routing: RoutingDispatch }
+
+export interface State extends ModelsState<typeof models> { routing: RoutingState }
+export interface Dispatch extends ModelsDispatch<typeof models> { routing: RoutingDispatch }
+
