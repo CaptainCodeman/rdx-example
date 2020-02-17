@@ -8,11 +8,10 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "importHelpers": true,
     "noEmitHelpers": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
     "lib": [
       "esnext",
       "dom",
