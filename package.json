@@ -13,8 +13,8 @@
   "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",
   "license": "ISC",
   "devDependencies": {
-    "@captaincodeman/rdx": "^1.0.0-rc.1",
-    "@captaincodeman/rdx-model": "^1.0.0-rc.3",
+    "@captaincodeman/rdx": "^1.0.0-rc.2",
+    "@captaincodeman/rdx-model": "^1.0.0-rc.4",
     "@captaincodeman/router": "^1.0.1",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-typescript": "^3.0.0",
