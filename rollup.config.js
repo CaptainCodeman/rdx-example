@@ -1,7 +1,7 @@
 'use strict';
 
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import minify from 'rollup-plugin-minify-html-literals';
 import { defaultShouldMinify } from 'minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
@@ -39,5 +39,5 @@ export default {
     }),
     size(),
   ],
-  preserveSymlinks: true,
+  // preserveSymlinks: true,
 }

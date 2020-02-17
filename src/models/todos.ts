@@ -1,5 +1,6 @@
 import { createModel, RoutingState } from '@captaincodeman/rdx-model';
-import { State, Dispatch } from '../store';
+import { GetState } from '@captaincodeman/rdx';
+import { Dispatch, State } from '../store';
 
 export interface Todo {
   userId: number
@@ -44,7 +45,7 @@ export default createModel({
 
     receivedList(state, payload: Todo[]) {
       return { ...state,
-        entities: payload.reduce((map, todo) => {
+        entities: payload.reduce((map: any, todo) => {
           map[todo.id] = todo
           return map
         }, {}),
@@ -54,39 +55,42 @@ export default createModel({
     },
   },
 
-  effects: (dispatch: Dispatch, getState) => ({
-    async select(payload: number) {
-      const state: State = getState()
-      if (!state.todos.entities[state.todos.selected]) {
-        // 'this' should be the current models reducer methods
-        // dispatch should be augmented with other models methods
-        // dispatch.todos.request()
-        dispatch.todos.request()
-        const resp = await fetch(`${endpoint}todos/${payload}`)
-        const json = await resp.json()
-        dispatch.todos.received(json)
-      }
-    },
+  effects: (_dispatch: any, getState: GetState) => {
+    const dispatch = _dispatch as Dispatch
+    return {
+      async select(payload: number) {
+        const state: State = getState()
+        if (!state.todos.entities[state.todos.selected]) {
+          // 'this' should be the current models reducer methods
+          // dispatch should be augmented with other models methods
+          // dispatch.todos.request()
+          dispatch.todos.request()
+          const resp = await fetch(`${endpoint}todos/${payload}`)
+          const todo: Todo = await resp.json()
+          dispatch.todos.received(todo)
+        }
+      },
 
-    async load() {
-      const state: State = getState()
-      if (!state.todos.ids.length) {
-        dispatch.todos.request()
-        const resp = await fetch(`${endpoint}todos`)
-        const json = await resp.json()
-        dispatch.todos.receivedList(json)
-      }
-    },
+      async load() {
+        const state: State = getState()
+        if (!state.todos.ids.length) {
+          dispatch.todos.request()
+          const resp = await fetch(`${endpoint}todos`)
+          const todos: Todo[] = await resp.json()
+          dispatch.todos.receivedList(todos)
+        }
+      },
 
-    'routing/change': async function(payload: RoutingState) {
-      switch (payload.page) {
-        case 'todos-view':
-          dispatch.todos.load()
-          break
-        case 'todo-view':
-          dispatch.todos.select(parseInt(payload.params.id))
-          break
+      'routing/change': async function(payload: RoutingState) {
+        switch (payload.page) {
+          case 'todos-view':
+            dispatch.todos.load()
+            break
+          case 'todo-view':
+            dispatch.todos.select(parseInt(payload.params.id))
+            break
+        }
       }
     }
-  })
+}
 })
