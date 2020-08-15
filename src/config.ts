@@ -1,5 +1,5 @@
 import createMatcher from '@captaincodeman/router'
-import { routingPluginFactory } from '@captaincodeman/rdx'
+import { routingPlugin } from '@captaincodeman/rdx'
 import * as models from './models'
 
 // NOTE: the /:app prefix of the routes is to handle github pages being in a subfolder
@@ -16,6 +16,6 @@ const routes = {
 }
 
 const matcher = createMatcher(routes)
-const routing = routingPluginFactory(matcher)
+const routing = routingPlugin(matcher)
 
 export const config = { models, plugins: { routing } }
