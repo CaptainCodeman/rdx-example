@@ -1,5 +1,5 @@
 import { connect } from '@captaincodeman/rdx'
-import { RoutingState } from '@captaincodeman/rdx-model'
+import { RoutingState } from '@captaincodeman/rdx'
 import { store, State } from '../store'
 
 class AppShellElement extends connect(store, HTMLElement) {

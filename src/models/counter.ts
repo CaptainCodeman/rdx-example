@@ -1,4 +1,4 @@
-import { createModel } from '@captaincodeman/rdx-model'
+import { createModel } from '@captaincodeman/rdx'
 
 export default createModel({
   state: 0,

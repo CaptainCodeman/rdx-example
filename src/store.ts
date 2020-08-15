@@ -1,4 +1,4 @@
-import { createStore, StoreState, StoreDispatch, EffectStore } from '@captaincodeman/rdx-model'
+import { createStore, StoreState, StoreDispatch, ModelStore } from '@captaincodeman/rdx'
 import { devtools, persist} from '@captaincodeman/rdx'
 import { config } from './config'
 
@@ -22,4 +22,4 @@ export const store = _store
 
 export interface State extends StoreState<typeof config> {}
 export interface Dispatch extends StoreDispatch<typeof config> {}
-export interface Store extends EffectStore<Dispatch, State> {}
+export interface Store extends ModelStore<Dispatch, State> {}

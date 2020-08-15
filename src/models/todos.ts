@@ -1,4 +1,4 @@
-import { createModel, RoutingState } from '@captaincodeman/rdx-model';
+import { createModel, RoutingState } from '@captaincodeman/rdx';
 import { Store } from '../store';
 
 export interface Todo {
