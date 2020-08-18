@@ -54,42 +54,42 @@ export default createModel({
     },
   },
 
-  effects: (store: Store) => ({
-    async select(payload: number) {
-      const dispatch = store.dispatch()
-      const state = store.getState()
-      if (!state.todos.entities[state.todos.selected]) {
-        // 'this' should be the current models reducer methods
-        // dispatch should be augmented with other models methods
-        // dispatch.todos.request()
-        dispatch.todos.request()
-        const resp = await fetch(`${endpoint}todos/${payload}`)
-        const todo: Todo = await resp.json()
-        dispatch.todos.received(todo)
-      }
-    },
+  effects(store: Store) {
+    const dispatch = store.getDispatch()
+    return {
+      async select(payload: number) {
+        const state = store.getState()
+        if (!state.todos.entities[state.todos.selected]) {
+          // 'this' should be the current models reducer methods
+          // dispatch should be augmented with other models methods
+          // dispatch.todos.request()
+          dispatch.todos.request()
+          const resp = await fetch(`${endpoint}todos/${payload}`)
+          const todo: Todo = await resp.json()
+          dispatch.todos.received(todo)
+        }
+      },
 
-    async load() {
-      const dispatch = store.dispatch()
-      const state = store.getState()
-      if (!state.todos.ids.length) {
-        dispatch.todos.request()
-        const resp = await fetch(`${endpoint}todos`)
-        const todos: Todo[] = await resp.json()
-        dispatch.todos.receivedList(todos)
-      }
-    },
+      async load() {
+        const state = store.getState()
+        if (!state.todos.ids.length) {
+          dispatch.todos.request()
+          const resp = await fetch(`${endpoint}todos`)
+          const todos: Todo[] = await resp.json()
+          dispatch.todos.receivedList(todos)
+        }
+      },
 
-    'routing/change': async function(payload: RoutingState) {
-      const dispatch = store.dispatch()
-      switch (payload.page) {
-        case 'todos-view':
-          dispatch.todos.load()
-          break
-        case 'todo-view':
-          dispatch.todos.select(parseInt(payload.params.id))
-          break
+      'routing/change': async function(payload: RoutingState) {
+        switch (payload.page) {
+          case 'todos-view':
+            dispatch.todos.load()
+            break
+          case 'todo-view':
+            dispatch.todos.select(parseInt(payload.params.id))
+            break
+        }
       }
     }
-  })
+  }
 })
