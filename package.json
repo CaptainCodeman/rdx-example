@@ -17,7 +17,7 @@
     "@captaincodeman/router": "^1.0.1",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.27.10",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",
     "connect-logger": "0.0.1",
